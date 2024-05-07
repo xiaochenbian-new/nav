@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JSON to Excel/CSV</title>
+        <link rel="shortcut icon" href="img/excel2.png"/>
+        <script src="js/xlsx.full.min.js"></script>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 90vh;
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            #data-input {
+                flex-grow: 1;
+                margin-bottom: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 100%;
+                box-sizing: border-box;
+                resize: none;
+                outline-color: #a6deff;
+                font-size: 13px;
+                min-height: 100px;
+            }
+
+            #csv-output {
+                visibility: hidden;
+                flex-grow: 1;
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 100%;
+                height: 200px;
+                box-sizing: border-box;
+                resize: none;
+                outline-color: #a6deff;
+                font-size: 13px;
+            }
+
+            #convert-btn {
+                background-color: #00a2ff;
+                font-weight: bold;
+                font-size: 13px;
+            }
+            #download-btn {
+                background-color: #00a2ff;
+                font-weight: bold;
+                font-size: 13px;
+            }
+
+
+            .button-container {
+                display: flex;
+                justify-content: flex-start;
+            }
+            button {
+                margin-left: 10px;
+                padding: 11px 21px;
+                border: none;
+                border-radius: 4px;
+                color: white;
+                cursor: pointer;
+            }
+            #export-btn {
+                background-color: #00a2ff;
+                font-weight: bold;
+                font-size: 13px;
+            }
+            #clear-btn {
+                background-color: #ff0000;
+                font-weight: bold;
+                font-size: 13px;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="data-input" rows="10" placeholder='格式：[{"name":"张三","年龄":10},{"name":"李四","年龄":14}]'></textarea>
+        <div class="button-container">
+            <button id="export-btn" onclick="exportToExcel()">导出到 Excel</button>
+            <button id="convert-btn" onclick="convertToCSV()">转 CSV</button>
+            <button id="download-btn" onclick="downloadCSV()">下载 CSV</button>
+            <button id="clear-btn" onclick="clearInput()">清空</button>
+        </div>
+        <textarea id="csv-output" readonly></textarea>
+        <script src="js/jsonToExcel.js"></script>
+    </body>
+</html>

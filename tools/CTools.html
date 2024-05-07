@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CTools</title>
+        <link rel="icon" href="./img/CTools2.png" type="image/png">
+        <style>
+            /* 页面间隙 */
+            body {
+                margin: 20px;
+            }
+
+            /* 样式设置 */
+            .tab {
+                margin: 0 auto;
+                padding: 0;
+                list-style: none;
+                overflow: hidden;
+                background-color: #ffffff;
+                border-radius: 20px;
+                box-shadow: 2px 0px 15px 0px rgba(0,0,0,0.15);
+            }
+
+            .tab li {
+                float: left;
+            }
+
+            .tab li:first-child a {
+                margin-left: 20px;
+            }
+
+            .tab li a {
+                display: block;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                color: #5f5f5f;
+                font-size: 18px;
+                transition: 0.3s;
+                border-bottom: 3px solid transparent;
+                border-radius: 20px;
+            }
+
+            .tab li a:hover {
+                background-color: #f1f1f1;
+                color: #333;
+            }
+
+            .tab li a.active {
+                background-color: #1abc9c;
+                color: #ffffff;
+                border-bottom: 3px solid #1abc9c;
+            }
+
+            .tabcontent {
+                display: none;
+                padding: 20px;
+                clear: both;
+            }
+
+            iframe {
+                box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.15);
+                border-radius: 20px;
+                margin-top: 0px;
+            }
+
+
+            body, html {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <ul class="tab">
+            <li><a href="DDL.html" class="active" target="content">DDL转Java</a></li>
+            <li><a href="jsonToExcel.html" target="content">Json导出Excel/CSV</a></li>
+            <li><a href="javaToJson.html" target="content">Java实体转Json</a></li>
+            <li><a href="TesterJSON.html" target="content">Tester转文档</a></li>
+        </ul>
+
+        <iframe name="content" src="DDL.html" style="width:100%; height:100%; border: none;"></iframe>
+
+    </body>
+
+    <script>
+        window.onload = function() {
+
+            // 获取所有页面链接
+            var tablinks = document.querySelectorAll('.tab li a');
+            // 保存输入的内容
+            var content = {};
+
+            var iframe = document.querySelector('iframe[name="content"]');
+
+            // iframe 加载页面完成后，恢复输入的内容
+            iframe.addEventListener('load', function() {
+                var iframeContent = iframe.contentDocument || iframe.contentWindow.document;
+                var input = iframeContent.querySelector('#input');
+
+                // 如果 localStorage 里有内容，恢复到输入框
+                if (localStorage.getItem(iframe.src)) {
+                    input.value = localStorage.getItem(iframe.src);
+                }
+            });
+
+            // 遍历所有页面链接
+            tablinks.forEach(function(tab) {
+                tab.addEventListener('click', function(event) {
+
+                    // iframe 页面切换前，保存输入的内容
+                    var iframeContent = iframe.contentDocument || iframe.contentWindow.document;
+                    var input = iframeContent.querySelector('#input');
+
+                    // 保存内容到 localStorage
+                    if (input) localStorage.setItem(iframe.src, input.value);
+
+                    // 去除之前选项的底线
+                    tablinks.forEach(function(tab) {
+                        tab.classList.remove('active');
+                    });
+
+                    // 给当前选项添加底线
+                    event.target.classList.add('active');
+                });
+            });
+        }
+
+    </script>
+
+</html>

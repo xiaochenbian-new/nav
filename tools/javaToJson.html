@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Java 实体转 Json</title>
+        <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <link rel="icon" href="img/javaToJson.jpg" type="image/png">
+
+        <script src="js/vue.js"></script>
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="css/ddl.css">
+        <!-- 引入组件库 -->
+        <script src="js/element-ui.js"></script>
+        <style>
+            body {
+                margin: 0;
+                height: 92vh;
+                font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            }
+
+            #app {
+                height: 93vh;
+            }
+
+            .el-textarea__inner,
+            .el-textarea {
+                margin-top: 6px;
+                height: 98% !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <el-input type="textarea" v-model="pre" @input="convert" style="width: 45%;margin-left: 1%;" placeholder="请复制Java实体，例如：
+public class UserPO {
+    private Long id;
+    private String nickName;  //昵称
+    private String username;  //账号
+    private String password;  //密码
+    private String email;  //邮箱
+    private String headPortrait;  //头像
+    private String type;  //用户类型
+    private Date createTime;
+    private Date updateTime;
+}
+            ">
+            </el-input>
+            <el-input type="textarea" v-model="res" style="width: 53%;" placeholder="输出结果:
+{
+    &quot;id&quot;: null,
+    &quot;nickName&quot;: null,
+    &quot;username&quot;: null,
+    &quot;password&quot;: null,
+    &quot;email&quot;: null,
+    &quot;headPortrait&quot;: null,
+    &quot;type&quot;: null,
+    &quot;createTime&quot;: null,
+    &quot;updateTime&quot;: null
+}
+        "></el-input>
+        </div>
+
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/javaToJson.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/Tester.png"/>
+        <title> 解析Talend API Tester 为文档</title>
+        <style>
+            .container {
+                display: flex;
+                width: 92%;
+                height: 92vh;
+            }
+
+            .input-panel {
+                flex: 0 0 25%;
+                background-color: #f1f1f1;
+                padding: 0px 20px 0px 20px;
+            }
+
+            .output-panel {
+                flex: 1;
+                padding: 20px;
+                overflow-y: auto;
+            }
+
+            .input-panel h2 {
+                margin-bottom: 10px;
+            }
+
+            .input-panel .input-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1px;
+            }
+
+            .input-panel textarea {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .input-panel .button-wrapper {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .input-panel button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            .input-panel button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="input-panel">
+                <div class="input-header">
+                    <h2>解析Talend API Tester， 请输入导出的json字符串：</h2>
+                    <div class="button-wrapper">
+                        <button onclick="parseJson()">解析</button>
+                    </div>
+                </div>
+                <textarea id="input-json" rows="10" cols="50" style="height: 750px; width: 709px;"></textarea>
+            </div>
+            <div class="output-panel">
+                <h2>解析结果</h2>
+                <div id="output-results"></div>
+            </div>
+        </div>
+
+        <script src="js/testerJson.js">
+
+        </script>
+    </body>
+</html>

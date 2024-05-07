@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>MySQL DDL PARSE</title>
+        <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <link rel="icon" href="img/sql-ddl.png" type="image/png">
+
+        <script src="js/vue.js"></script>
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="css/ddl.css">
+        <!-- 引入组件库 -->
+        <script src="js/element-ui.js"></script>
+        <style>
+            body {
+                margin: 0;
+                height: 92vh;
+                font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            }
+
+            #app {
+                height: 93vh;
+            }
+
+            .el-textarea__inner,
+            .el-textarea {
+                margin-top: 6px;
+                height: 98% !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <el-input type="textarea" v-model="pre" @input="convert" style="width: 45%;margin-left: 1%;" placeholder="请复制mysql ddl 语句
+CREATE TABLE `krm_blog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL COMMENT '标题',
+  `content` text COMMENT '博客内容',
+  `icon` varchar(255) DEFAULT NULL COMMENT '图标',
+  `view_count` int(255) DEFAULT '0' COMMENT '访问次数',
+  `tags` varchar(255) DEFAULT NULL COMMENT '标签',
+  `is_top` int(1) DEFAULT NULL COMMENT '是否置顶：1是 ，0否',
+  `is_original` int(1) DEFAULT NULL COMMENT '是否原创：1是 ，0否',
+  `is_recommend` int(1) DEFAULT NULL COMMENT '是否推荐：1是 ，0否',
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+            ">
+            </el-input>
+            <el-input type="textarea" v-model="res" style="width: 53%;" placeholder="输出结果
+
+所有字段：
+查询所有字段SQL：
+实体类：
+mybatis相关：
+        "></el-input>
+        </div>
+
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/ddl.js"></script>
+    </body>
+
+</html>
