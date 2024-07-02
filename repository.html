@@ -63,24 +63,30 @@
 
             <!--导航标签-->
             <section id="home" class="inner-center myhome">
+                <h2 class="rainbow-text">尚硅谷脑图</h2><br>
                 <div class="block">
-                    <h2 class="rainbow-text">MindManager脑图</h2> <br>
-                    <p>
-                        <a href="static/myDos/MySQL SQL语句.html" target="_blank">
-                            <img class="lazy downPhoto" loading="lazy" src="static/img/me/study.png"/>
-                            MySQL-SQL语句
-                        </a>
-                    </p><br>
                     <p>
                         <a href="static/myDos/Docker2022.html" target="_blank">
                             <img class="lazy downPhoto" loading="lazy" src="static/img/me/study.png"/>
                             docker 脑图-尚硅谷（周阳）
                         </a>
                     </p><br>
+                    <p>
+                        <a href="static/myDos/Redis脑图（基础篇+高级篇）.html" target="_blank">
+                            <img class="lazy downPhoto" loading="lazy" src="static/img/me/study.png"/>
+                            redis 脑图(基础篇+高级篇)-尚硅谷（周阳）
+                        </a>
+                    </p><br>
+                </div> <br>
+                <div class="block">
+
                 </div>
 
+
+                <br>
+                <h2 class="rainbow-text">文档</h2><br>
                 <div class="block">
-                    <h2 class="rainbow-text">文档</h2><br>
+
                     <p>
                         <a href="static/software/Spring全家桶面试题—图灵徐庶.pdf" class="downA" download>
                             Spring全家桶面试题-图灵徐庶.pdf
@@ -150,12 +156,20 @@
         }
 
 
+        /*.block {*/
+        /*    flex-basis: calc(50% - 10px);*/
+        /*    padding: 50px;*/
+        /*    background-color: white;*/
+        /*    box-shadow: 0 2px 4px rgba(242, 220, 204, 0.7);*/
+        /*}*/
+
         .block {
-            flex-basis: calc(50% - 10px);
-            padding: 50px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(242, 220, 204, 0.7);
+            display: flex;
+            gap: 20px;
         }
+
+
+
 
     </style>
 </html>
